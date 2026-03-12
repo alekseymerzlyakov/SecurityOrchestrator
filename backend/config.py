@@ -3,6 +3,10 @@
 import os
 from pathlib import Path
 from cryptography.fernet import Fernet
+from dotenv import load_dotenv
+
+# Load environment variables from .env if present
+load_dotenv()
 
 # Paths
 BASE_DIR = Path(__file__).parent.parent
@@ -17,12 +21,12 @@ DATA_DIR.mkdir(exist_ok=True)
 REPORTS_DIR.mkdir(exist_ok=True)
 
 # Database
-DATABASE_URL = f"sqlite+aiosqlite:///{DB_PATH}"
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite+aiosqlite:///{DB_PATH}")
 
 # Server
-HOST = "0.0.0.0"
-PORT = 8000
-CORS_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
+HOST = os.getenv("HOST", "0.0.0.0")
+PORT = int(os.getenv("PORT", 8000))
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
 
 # Encryption key for API keys (generate once, store in env or file)
 _key_file = DATA_DIR / ".encryption_key"

@@ -36,7 +36,7 @@ SecurityTesting/
 ## Первый запуск (один раз)
 
 ```bash
-cd /Users/alekseymerzlyakov/Tests/SecurityTesting
+cd /Users/XXX/Tests/SecurityTesting
 
 # 1. Создать virtualenv и установить зависимости
 python3 -m venv venv
@@ -61,9 +61,9 @@ npm install -g retire eslint eslint-plugin-security eslint-plugin-no-unsanitized
 ### Терминал 1 — Бэкенд
 
 ```bash
-cd /Users/alekseymerzlyakov/Tests/SecurityTesting
+cd /Users/XXX/Tests/SecurityTesting
 source venv/bin/activate
-PYTHONPATH=/Users/alekseymerzlyakov/Tests/SecurityTesting \
+PYTHONPATH=/Users/XXX/Tests/SecurityTesting \
   uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
@@ -73,7 +73,7 @@ API документация: **http://localhost:8000/docs**
 ### Терминал 2 — Фронтенд
 
 ```bash
-cd /Users/alekseymerzlyakov/Tests/SecurityTesting/frontend
+cd /Users/XXX/Tests/SecurityTesting/frontend
 npm run dev
 ```
 
@@ -86,7 +86,7 @@ npm run dev
 ## Полный сброс (если что-то сломалось)
 
 ```bash
-cd /Users/alekseymerzlyakov/Tests/SecurityTesting
+cd /Users/XXX/Tests/SecurityTesting
 
 # Убить всё что висит на портах
 lsof -ti:8000 | xargs kill -9 2>/dev/null
@@ -97,7 +97,7 @@ rm -f data/aiso.db
 
 # Перезапустить бэкенд — БД создастся заново
 source venv/bin/activate
-PYTHONPATH=/Users/alekseymerzlyakov/Tests/SecurityTesting \
+PYTHONPATH=/Users/XXX/Tests/SecurityTesting \
   uvicorn backend.main:app --host 0.0.0.0 --port 8000
 ```
 
@@ -305,7 +305,7 @@ curl -X POST http://localhost:8000/api/reports/1/generate \
 ## 🚀 Запуск одной командой
 
 ```bash
-cd /Users/alekseymerzlyakov/Tests/SecurityTesting && ./start.sh
+cd /Users/XXX/Tests/SecurityTesting && ./start.sh
 ```
 
 Скрипт автоматически:

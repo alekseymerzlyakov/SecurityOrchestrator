@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Node
+node_modules/
+dist/
+
+# Application Data
+data/aiso.db
+data/.encryption_key
+data/*.log
+data/reports/
+*.db
+
+# Scanned Repositories (if stored in a specific folder, add here)
+# For now, excluding a generic 'repos/' folder if it exists or is used
+repos/
+cloned_repos/
